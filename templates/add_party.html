@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Party
+{% endblock %}
+
+{% block main %}
+    <form action="/add_party" method="post">
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="group1" name="group1" placeholder="Group Username" type="text" required>
+            <input class="form-control mx-auto w-auto" id="group2" name="group2" placeholder="Group Username" type="text">
+            <input class="form-control mx-auto w-auto" id="group3" name="group3" placeholder="Group Username" type="text">
+            <input class="form-control mx-auto w-auto" id="group4" name="group4" placeholder="Group Username" type="text">
+            <input class="form-control mx-auto w-auto" id="group5" name="group5" placeholder="Group Username" type="text">
+        </div>
+        <div class="mb-3">
+            <label for="final_date">Party's date:</label>
+            <input class="form-control mx-auto w-auto" id="date" type="date" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Add Party</button>
+    </form>
+{% endblock %}

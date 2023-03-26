@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    MyHouses
+{% endblock %}
+
+{% block main %}
+    {% if len == 0 %}
+        <div>You are not the admin of any house yet.</div>
+        <table class="table table-striped">
+            <tfoot>
+                <button type="button" onclick="location.href='/create_house'">Create House</button>
+            </tfoot>
+        </table>
+    {% else %}
+        <table class="table table-striped">
+            <thead>
+                <tr>Houses</tr>
+            </thead>
+            <tbody>
+                {% for house in houses %}
+                <tr>
+                        <form action="/myhouses" method="post">
+                            <td>{{ house }}</td>
+                            <td><button type="submit" name="selected_house" id="selected_house" value="{{ group }}" style="width : 5%">Details</button></td>
+                        </form>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <button type="button" onclick="location.href='/create_house'">Create House</button>
+            </tfoot>
+        </table>
+    {% endif %}
+{% endblock %}

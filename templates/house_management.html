@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ username }} manegement
+{% endblock %}
+
+{% block main %}
+
+    <form action="/house_management" method="post">
+        <button type="submit" name="delete_house" id="delete_house">Delete House</button>
+    </form>
+
+    <br>
+    
+    {{% if lenp == 0 %}}
+        <h1>No partys booked in {{ username }} yet.</h1>
+    {{% else %}}
+        <table>
+            <thead>
+                <tr>Partys</tr>
+            </thead>
+            <tbody>
+                {% for party in house_partys %}
+                    <tr>
+                        <td>{{ party["date"] }}</td>
+                        <form action="/house_management" method="post">
+                            <button type="submit" name="delete_party" id="delete_party" value="{{ party['id'] }}">Delete Party</button>
+                        </form>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <form action="/house_management" method="post">
+                            <button type="submit" name="add_party" id="add_party">Add party</button>
+                        <form>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    {{% endif %}}
+
+    <br>
+
+    {{% if lenb == 0 %}}
+        <h1>No one is ban from {{ username }}!</h1>
+    {{% else %}}
+        <table>
+            <thead>
+                <tr>Bannes</tr>
+            </thead>
+            <tbody>
+                {% for ban in house_bannes %}
+                    <tr>
+                        <td>{{ ban["user_id"] }}</td>
+                        <td>ban until {{ ban["final_date"] }}</td>
+                        <form action="/house_management" method="post">
+                            <button type="submit" name="delete_party" id="delete_party" value="{{ ban['id'] }}">Delete Ban</button>
+                        </form>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <form action="/house_management" method="post">
+                            <button type="submit" name="add_ban" id="add_ban" value="{{ ban['id'] }}">Add Ban</button>
+                        </form>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    {{% endif %}}
+{% endblock %}

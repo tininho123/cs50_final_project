@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    MyGroups
+{% endblock %}
+
+{% block main %}
+    <form action="/create_group" method="post">
+        <input class="form-control mx-auto w-auto" id="new_member1" name="new_member1" placeholder="Member Username" type="text" required>
+        <input class="form-control mx-auto w-auto" id="new_member2" name="new_member2" placeholder="Member Username" type="text">
+        <input class="form-control mx-auto w-auto" id="new_member3" name="new_member3" placeholder="Member Username" type="text">
+        <input class="form-control mx-auto w-auto" id="new_member4" name="new_member4" placeholder="Member Username" type="text">
+        <input class="form-control mx-auto w-auto" id="new_member5" name="new_member5" placeholder="Member Username" type="text">
+        <button class="btn btn-primary" type="submit">Create</button>
+    </form>
+{% endblock %}

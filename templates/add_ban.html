@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Ban
+{% endblock %}
+
+{% block main %}
+    <form action="/add_ban" method="post">
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="user_username" name="user_username" placeholder="User's username" type="text" required>
+        </div>
+        <div class="mb-3">
+            <label for="final_date">Ban's final date:</label>
+            <input class="form-control mx-auto w-auto" id="final_date" type="date" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Ban</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ username }} manegement
+{% endblock %}
+
+{% block main %}
+    <table>
+        <thead>
+            <tr>Members</tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+                <tr>
+                    <td>{{ member }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <form action="/group_management" method="post">
+                        <button type="submit" name="leave_group" id="leave_group">Leave Group</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/group_management" method="post">
+                        <button type="submit" name="add_member" id="add_member">Add member</button>
+                    <form>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+{% endblock %}

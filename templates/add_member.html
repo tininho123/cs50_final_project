@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Members
+{% endblock %}
+
+{% block main %}
+<form action="/add_members" method="post">
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="added_member" name="added_member" placeholder="New Member Username" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Add to {{ group }}</button>
+</form>
+{% endblock %}
